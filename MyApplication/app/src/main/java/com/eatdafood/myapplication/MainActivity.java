@@ -14,12 +14,15 @@ public class MainActivity extends ActionBarActivity {
     public final static String EXTRA_MESSAGE = "com.eatdafood.MyApplication.MESSAGE";
     public final static String EXTRA_INT = "0";
 
-    donut tracker;
+    private donut tracker;
+    private int upgraded;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tracker = new donut();
+        upgraded = 1;
     }
 
 
@@ -63,8 +66,17 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void eatDonut(View view){
-        if(tracker.getDon()>0) {
+        if(tracker.getDon()-upgraded>=0) {
             tracker.eatDon();
+            this.updateView();
+        }
+    }
+
+    public void doubleDonuts(View view){
+        if(tracker.getDon() >= (10*upgraded)){
+            tracker.eatDonNum(10*upgraded);
+            upgraded++;
+            tracker.addToMult(1);
             this.updateView();
         }
     }
@@ -80,7 +92,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 */
-    
+
     public void updateView(){
         TextView textView = (TextView) findViewById(R.id.dcounter);
         String dCounterString = Integer.toString(tracker.getDon());
@@ -117,17 +129,22 @@ class autoMaker extends Thread {
 
 class donut{
     private int donuts;
+    private int multiplier;
     public donut(){
         donuts = 0;
+        multiplier = 1;
     }
     public synchronized void makeDon(){
-        donuts++;
+        donuts=donuts+multiplier;
     }
     public synchronized void eatDon(){
-        donuts--;
+        donuts=donuts-multiplier;
     }
     public synchronized void eatDonNum(int x){
         donuts = donuts - x;
+    }
+    public void addToMult(int x){
+        multiplier++;
     }
     public int getDon(){
         return donuts;

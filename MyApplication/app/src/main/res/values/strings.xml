@@ -6,6 +6,7 @@
     <string name="make">Make</string>
     <string name="eat">Eat</string>
     <string name="auto">Automate Cost 10</string>
+    <string name="doubleD">Double it up</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_display_message">MyMessage</string>
     <string name="hello_world">Hello world!</string>
