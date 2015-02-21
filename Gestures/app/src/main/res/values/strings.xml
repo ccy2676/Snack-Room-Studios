@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Gestures</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="counter">Donut Number: 0</string>
+    <string name="mcounter">$0</string>
+    <string name="fcounter">Flour Level: 1</string>
+    <string name="scounter">Sugar Level: 1</string>
+    <string name="fButton">Level Up Flour</string>
+    <string name="sButton">Level Up Sugar</string>
+
+
+</resources>
